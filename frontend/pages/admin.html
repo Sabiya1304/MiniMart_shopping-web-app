@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | MiniMart</title>
+
+    <!-- Reuse MiniMart's existing theme and shared components -->
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+
+    <!-- Admin-specific styling -->
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+
+        <!-- Sidebar navigation -->
+        <aside class="admin-sidebar">
+            <a class="admin-brand" href="../pages/index.html">
+                <span class="admin-brand-mark">M</span>
+                <span>MiniMart <small>ADMIN PANEL</small></span>
+            </a>
+
+            <nav class="admin-navigation" aria-label="Admin navigation">
+                <a class="admin-nav-link active" href="#dashboard">
+                    <span aria-hidden="true">▦</span>
+                    Dashboard
+                </a>
+
+                <a class="admin-nav-link" href="#products">
+                    <span aria-hidden="true">▣</span>
+                    Products
+                </a>
+
+                <a class="admin-nav-link" href="#categories">
+                    <span aria-hidden="true">▤</span>
+                    Categories
+                </a>
+
+                <a class="admin-nav-link" href="#inventory">
+                    <span aria-hidden="true">▥</span>
+                    Inventory
+                </a>
+
+                <a class="admin-nav-link" href="#orders">
+                    <span aria-hidden="true">▧</span>
+                    Orders
+                </a>
+            </nav>
+
+            <a class="admin-back-link" href="index.html">
+                ← Back to Store
+            </a>
+        </aside>
+
+        <!-- Main dashboard -->
+        <main class="admin-main">
+
+            <header class="admin-topbar">
+                <div>
+                    <p class="admin-eyebrow">MINIMART MANAGEMENT</p>
+                    <h1>Admin Dashboard</h1>
+                    <p class="admin-subtitle">
+                        Manage your products, categories and inventory.
+                    </p>
+                </div>
+
+                <span class="admin-status">
+                    <span class="status-dot"></span>
+                    Admin Panel
+                </span>
+            </header>
+
+            <!-- Dashboard overview -->
+            <section id="dashboard" class="admin-section">
+                <div class="admin-section-heading">
+                    <div>
+                        <h2>Overview</h2>
+                        <p>Your store's current status.</p>
+                    </div>
+                </div>
+
+                <div class="admin-stats-grid">
+                    <article class="admin-stat-card">
+                        <span class="stat-icon">▣</span>
+                        <p>Total Products</p>
+                        <strong id="total-products">—</strong>
+                        <small>Products in the catalog</small>
+                    </article>
+
+                    <article class="admin-stat-card">
+                        <span class="stat-icon">▤</span>
+                        <p>Categories</p>
+                        <strong id="total-categories">—</strong>
+                        <small>Categories in the store</small>
+                    </article>
+
+                    <article class="admin-stat-card">
+                        <span class="stat-icon">!</span>
+                        <p>Low Stock</p>
+                        <strong id="low-stock-products">—</strong>
+                        <small>Products needing attention</small>
+                    </article>
+
+                    <article class="admin-stat-card">
+                        <span class="stat-icon">×</span>
+                        <p>Out of Stock</p>
+                        <strong id="out-of-stock-products">—</strong>
+                        <small>Products unavailable</small>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Product management -->
+            <section id="products" class="admin-section">
+                <div class="admin-section-heading">
+                    <div>
+                        <h2>Product Management</h2>
+                        <p>View and manage products stored in MongoDB.</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="add-product-btn"
+                        class="admin-primary-btn"
+                    >
+                        + Add Product
+                    </button>
+                </div>
+                
+                <!-- Add Product Form: hidden until the Add Product button is clicked -->
+                <section id="add-product-section" class="admin-form-section" hidden>
+                    <h2>Add New Product</h2>
+
+                    <form id="add-product-form">
+                        <label for="product-name">Product Name *</label>
+                        <input id="product-name" name="name" type="text" required />
+
+                        <label for="product-description">Description *</label>
+                        <textarea id="product-description" name="description" required></textarea>
+
+                        <label for="product-price">Selling Price (₹) *</label>
+                        <input id="product-price" name="price" type="number" min="0" step="0.01" required />
+
+                        <label for="product-original-price">Original Price (₹)</label>
+                        <input id="product-original-price" name="originalPrice" type="number" min="0" step="0.01" />
+
+                        <label for="product-image">Main Image URL *</label>
+                        <input id="product-image" name="imageUrl" type="url" required />
+
+                        <label for="product-images">Additional Image URLs</label>
+                        <textarea id="product-images" name="images" placeholder="Paste image URLs, one per line"></textarea>
+
+                        
+                        <!-- Main category dropdown -->
+                        <label for="product-main-category">Main Category *</label>
+                        <select id="product-main-category" required>
+                            <option value="">Select main category</option>
+                        </select>
+
+                        <!-- Subcategory dropdown updates based on the main category -->
+                        <label for="product-category">Subcategory *</label>
+                        <select id="product-category" name="category" required disabled>
+                            <option value="">Select subcategory</option>
+                        </select>
+
+
+                        <label for="product-brand">Brand</label>
+                        <input id="product-brand" name="brand" type="text" />
+
+                        <label for="product-stock">Stock Quantity</label>
+                        <input id="product-stock" name="stock" type="number" min="0" step="1" value="0" />
+
+                        <label for="product-rating">Rating (0–5)</label>
+                        <input id="product-rating" name="rating" type="number" min="0" max="5" step="0.1" value="0" />
+
+                        <label>
+                            <input type="checkbox" name="isActive" checked />
+                            Active product
+                        </label>
+
+                        <p id="add-product-message" role="status"></p>
+
+                        <button type="submit">Save Product</button>
+                        <button type="button" id="cancel-add-product">Cancel</button>
+                    </form>
+                </section>
+
+
+                <!-- Search and filters -->
+                <div class="admin-toolbar">
+                    <input
+                        type="search"
+                        id="admin-product-search"
+                        placeholder="Search products or brands..."
+                        aria-label="Search products"
+                    >
+
+                    <select id="admin-category-filter" aria-label="Filter by category">
+                        <option value="">All Categories</option>
+                    </select>
+
+                    <select id="admin-stock-filter" aria-label="Filter by stock">
+                        <option value="">All Stock Statuses</option>
+                        <option value="in-stock">In Stock</option>
+                        <option value="low-stock">Low Stock</option>
+                        <option value="out-of-stock">Out of Stock</option>
+                    </select>
+                </div>
+
+                <!-- Product table -->
+                <div class="admin-table-wrapper">
+                    <table class="admin-product-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Brand</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="admin-products-body">
+                            <tr>
+                                <td colspan="7" class="admin-table-message">
+                                    Products will load from the backend.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p id="admin-products-message" role="status" aria-live="polite"></p>
+            </section>
+
+            <!-- Inventory section placeholder -->
+            <section id="inventory" class="admin-section">
+                <div class="admin-section-heading">
+                    <div>
+                        <h2>Inventory</h2>
+                        <p>Monitor product quantities and stock availability.</p>
+                    </div>
+                </div>
+                <p class="admin-placeholder">
+                    Inventory controls will use the existing product records.
+                </p>
+            </section>
+
+            <!-- Category section placeholder -->
+            <section id="categories" class="admin-section">
+                <div class="admin-section-heading">
+                    <div>
+                        <h2>Categories</h2>
+                        <p>Manage the store's main categories and subcategories.</p>
+                    </div>
+                </div>
+                <p class="admin-placeholder">
+                    Category management will be connected to the category API.
+                </p>
+            </section>
+
+            <!-- Order section placeholder -->
+            <section id="orders" class="admin-section">
+                <div class="admin-section-heading">
+                    <div>
+                        <h2>Orders</h2>
+                        <p>View customer orders and order status.</p>
+                    </div>
+                </div>
+                <p class="admin-placeholder">
+                    Order management will be connected after product management.
+                </p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Existing API helper -->
+    <script src="../js/api.js"></script>
+
+    <!-- Admin dashboard logic will be added next -->
+    <script src="../js/admin.js"></script>
+</body>
+</html>

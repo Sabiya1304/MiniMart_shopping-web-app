@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MiniMart | Discover More. Shop Better.</title>
+    <meta
+        name="description"
+        content="Discover fashion, beauty, electronics and everyday essentials at MiniMart."
+    >
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Keep the existing CSS files so we can redesign them next. -->
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Small announcement strip for store offers. -->
+    <div class="announcement-bar">
+        <p>Discover your next favourite find <span aria-hidden="true">✦</span> Great finds for every day</p>
+    </div>
+
+    <!-- Main header: logo, search and shopping actions. -->
+    <header class="site-header">
+        <div class="header-main container">
+
+            <a class="brand" href="index.html" aria-label="MiniMart home">
+                <span class="brand-mark">M</span>
+                <span class="brand-name">MiniMart<span>.</span></span>
+            </a>
+
+            <form class="search-bar" id="search-form" role="search">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Search fashion, electronics, home..."
+                    aria-label="Search products"
+                    autocomplete="off"
+                >
+                <button type="submit">Search</button>
+            </form>
+
+            <nav class="header-actions" aria-label="Account and shopping">
+                <a href="#account" class="header-action" id="account-link">
+                    <span class="action-icon" aria-hidden="true">♙</span>
+                    <span>Account</span>
+                </a>
+
+                <a href="#wishlist" class="header-action protected-link">
+                    <span class="action-icon" aria-hidden="true">♡</span>
+                    <span>Wishlist</span>
+                </a>
+
+                <a href="#cart" class="header-action protected-link">
+                    <span class="action-icon" aria-hidden="true">🛍</span>
+                    <span>Cart <b id="cart-count">0</b></span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Horizontal navigation makes important categories easy to find. -->
+        <nav class="category-nav" aria-label="Product categories">
+            <div class="container category-list" id="category-list">
+                <a href="#categories" class="nav-highlight">Explore all</a>
+                <a href="#featured-products">Women</a>
+                <a href="#featured-products">Men</a>
+                <a href="#featured-products">Beauty</a>
+                <a href="#featured-products">Home & Living</a>
+                <a href="#featured-products">Electronics</a>
+                <a href="#featured-products">Footwear</a>
+                <a href="#featured-products">Kids</a>
+                <a href="#categories">More <span aria-hidden="true">⌄</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Main hero: this will become the visual focus of the homepage. -->
+        <section class="hero-section container">
+            <div class="hero-content">
+                <span class="eyebrow">
+                    <span aria-hidden="true">✦</span> THE EVERYDAY DISCOVERY
+                </span>
+
+                <h1>
+                    Good finds.<br>
+                    <span>Great feelings.</span>
+                </h1>
+
+                <p>
+                    From your everyday essentials to little things you love,
+                    discover more of what makes your day.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#featured-products" class="btn btn-primary">
+                        Start exploring <span aria-hidden="true">→</span>
+                    </a>
+
+                    <a href="#categories" class="hero-secondary-link">
+                        Browse categories
+                    </a>
+                </div>
+
+                <div class="hero-benefits">
+                    <span><span aria-hidden="true">✓</span> Something for everyone</span>
+                    <span><span aria-hidden="true">♡</span> Finds you'll love</span>
+                </div>
+            </div>
+
+            <!-- CSS will style these as a light, layered shopping collage. -->
+            <div class="hero-art" aria-label="Illustration of shopping essentials">
+                <div class="hero-circle"></div>
+
+                <div class="hero-note note-top">
+                    <span aria-hidden="true">✦</span>
+                    Little things, big smiles
+                </div>
+
+                <div class="hero-product hero-product-one">
+                    <span class="hero-product-emoji" aria-hidden="true">👟</span>
+                    <span class="hero-product-label">Everyday style</span>
+                </div>
+
+                <div class="shopping-bag">
+                    <span class="bag-handle"></span>
+                    <span class="bag-letter">M</span>
+                    <span class="bag-caption">find your happy</span>
+                </div>
+
+                <div class="hero-product hero-product-two">
+                    <span class="hero-product-emoji" aria-hidden="true">👜</span>
+                    <span class="hero-product-label">New favourites</span>
+                </div>
+
+                <div class="hero-note note-bottom">
+                    A little joy in every discovery ♡
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick shopping benefits: short and easy to scan. -->
+        <section class="benefit-strip container" aria-label="Shopping highlights">
+            <div class="benefit">
+                <span class="benefit-icon" aria-hidden="true">✦</span>
+                <div>
+                    <strong>Everyday discoveries</strong>
+                    <p>Explore something new</p>
+                </div>
+            </div>
+
+            <div class="benefit">
+                <span class="benefit-icon" aria-hidden="true">♡</span>
+                <div>
+                    <strong>Your kind of style</strong>
+                    <p>Options for every taste</p>
+                </div>
+            </div>
+
+            <div class="benefit">
+                <span class="benefit-icon" aria-hidden="true">⌕</span>
+                <div>
+                    <strong>Easy to explore</strong>
+                    <p>Find what you need</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories: these links can later be connected to real filters. -->
+        <section class="section container" id="categories">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">A WORLD OF CHOICE</span>
+                    <h2>What are you looking for?</h2>
+                    <p>Start with a category and discover your favourites.</p>
+                </div>
+
+                <a href="#featured-products" class="text-link">
+                    Explore all <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+            <div class="category-grid" id="category-grid">
+                <a href="#featured-products" class="category-card category-fashion">
+                    <span class="category-symbol" aria-hidden="true">👗</span>
+                    <strong>Fashion</strong>
+                    <span>Styles for every day →</span>
+                </a>
+
+                <a href="#featured-products" class="category-card category-beauty">
+                    <span class="category-symbol" aria-hidden="true">✨</span>
+                    <strong>Beauty</strong>
+                    <span>Your self-care picks →</span>
+                </a>
+
+                <a href="#featured-products" class="category-card category-home">
+                    <span class="category-symbol" aria-hidden="true">🏠</span>
+                    <strong>Home & Living</strong>
+                    <span>Make yourself at home →</span>
+                </a>
+
+                <a href="#featured-products" class="category-card category-electronics">
+                    <span class="category-symbol" aria-hidden="true">🎧</span>
+                    <strong>Electronics</strong>
+                    <span>Everyday tech →</span>
+                </a>
+
+                <a href="#featured-products" class="category-card category-footwear">
+                    <span class="category-symbol" aria-hidden="true">👟</span>
+                    <strong>Footwear</strong>
+                    <span>Step out in style →</span>
+                </a>
+
+                <a href="#featured-products" class="category-card category-kids">
+                    <span class="category-symbol" aria-hidden="true">🧸</span>
+                    <strong>Kids & Toys</strong>
+                    <span>Little happy moments →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Featured products: JavaScript will eventually load real products here. -->
+        <section class="section featured-section" id="featured-products">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">PICKED FOR YOU</span>
+                        <h2>Worth a closer look</h2>
+                        <p>Explore products for your everyday life.</p>
+                    </div>
+
+                    <a href="#categories" class="text-link">
+                        View collections <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <div class="product-grid" id="product-grid">
+                    <!-- Temporary placeholders until the product API is connected. -->
+                    <div class="product-placeholder">
+                        <span aria-hidden="true">✦</span>
+                        <strong>Everyday favourites</strong>
+                        <p>Products from your store will appear here.</p>
+                    </div>
+
+                    <div class="product-placeholder">
+                        <span aria-hidden="true">♡</span>
+                        <strong>Little discoveries</strong>
+                        <p>Explore more once the catalogue is connected.</p>
+                    </div>
+
+                    <div class="product-placeholder">
+                        <span aria-hidden="true">☆</span>
+                        <strong>Something for you</strong>
+                        <p>Your next favourite could be waiting here.</p>
+                    </div>
+
+                    <div class="product-placeholder">
+                        <span aria-hidden="true">✧</span>
+                        <strong>Fresh finds</strong>
+                        <p>Real product details will come from the store.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final call to action before the footer. -->
+        <section class="newsletter-section container">
+            <div>
+                <span class="eyebrow">YOUR NEXT DISCOVERY STARTS HERE</span>
+                <h2>There's more to explore.</h2>
+                <p>Find everyday essentials and things that make you smile.</p>
+            </div>
+
+            <a href="#categories" class="btn btn-light">
+                Explore MiniMart <span aria-hidden="true">→</span>
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <a class="brand footer-brand" href="index.html" aria-label="MiniMart home">
+                <span class="brand-mark">M</span>
+                <span class="brand-name">MiniMart<span>.</span></span>
+            </a>
+
+            <p>Your everyday discoveries, all in one place.</p>
+
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="#categories">Categories</a>
+                <a href="#account" id="footer-account-link">My account</a>
+                <a href="#featured-products">Collections</a>
+            </nav>
+
+            <small>© <span id="current-year">2026</span> MiniMart. Built with care.</small>
+        </div>
+    </footer>
+
+    <!-- Sign-in dialog: actual OTP verification will be added later. -->
+    <dialog id="auth-dialog" class="auth-dialog">
+        <div class="auth-dialog-content">
+            <button
+                type="button"
+                class="dialog-close"
+                id="close-auth"
+                aria-label="Close sign-in dialog"
+            >×</button>
+
+            <span class="brand-mark auth-brand-mark">M</span>
+            <span class="eyebrow">WELCOME TO MINIMART</span>
+            <h2>Let's get you shopping.</h2>
+            <p>Enter your mobile number to continue.</p>
+
+            <form id="auth-form">
+                <label for="mobile-number">Mobile number</label>
+
+                <div class="mobile-input">
+                    <span>+91</span>
+                    <input
+                        type="tel"
+                        id="mobile-number"
+                        name="mobile"
+                        inputmode="numeric"
+                        autocomplete="tel-national"
+                        pattern="[6-9][0-9]{9}"
+                        maxlength="10"
+                        placeholder="Enter 10-digit number"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn btn-primary auth-submit">
+                    Continue with OTP
+                </button>
+
+                <p class="auth-message" id="auth-message" role="status">
+                    OTP verification will be connected to the backend.
+                </p>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- Keep existing scripts and their paths. -->
+    <script src="../js/api.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

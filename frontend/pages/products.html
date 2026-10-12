@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products | MiniMart</title>
+
+    <!-- Load your existing website styles -->
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/products.css">
+
+</head>
+
+<body>
+    <!-- Reuse your existing header if it is shared across pages -->
+    <main class="products-page">
+        <section class="products-heading">
+            <h1 id="page-title">All Products</h1>
+            <p id="products-count">Loading products...</p>
+        </section>
+        <!-- Displays subcategory cards for the selected main category. -->
+        <section id="subcategory-section" class="subcategory-section" hidden>
+            <div class="section-heading">
+                <h2>Shop by Subcategory</h2>
+                <p>Choose a subcategory or browse all products below.</p>
+            </div>
+
+            <div
+                id="subcategory-grid"
+                class="subcategory-grid"
+                aria-live="polite"
+            ></div>
+        </section>
+
+        <!-- Search and filter controls -->
+        <form id="product-filter-form" class="product-filters">
+            <input
+                type="search"
+                id="product-search"
+                placeholder="Search products or brands..."
+                aria-label="Search products"
+            >
+
+                        <!-- Main categories come from MongoDB. -->
+            <select id="category-filter" aria-label="Filter by main category">
+                <option value="">All Main Categories</option>
+            </select>
+
+            <!-- This dropdown will show subcategories of the selected main category. -->
+            <select id="subcategory-filter" aria-label="Filter by subcategory" disabled>
+                <option value="">All Subcategories</option>
+            </select>
+
+            <input
+                type="number"
+                id="min-price"
+                min="0"
+                placeholder="Min price (₹)"
+                aria-label="Minimum price"
+            >
+
+            <input
+                type="number"
+                id="max-price"
+                min="0"
+                placeholder="Max price (₹)"
+                aria-label="Maximum price"
+            >
+
+            <button type="submit">Apply Filters</button>
+            <button type="button" id="reset-filters">Reset</button>
+        </form>
+
+        <!-- Product cards are generated from MongoDB data -->
+        <section
+            id="products-grid"
+            class="products-grid"
+            aria-live="polite"
+        >
+            <p class="products-message">Loading products...</p>
+        </section>
+    </main>
+
+    <!-- Load API helper before this page's JavaScript -->
+    <script src="../js/api.js"></script>
+    <script src="../js/main.js"></script>
+    <!-- Load the product page logic after the API helper. -->
+    <script src="../js/products.js"></script>
+
+    </body>
+</html>
